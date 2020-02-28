@@ -52,7 +52,7 @@ public class FireScript : MonoBehaviour {
 
             if(Physics.Raycast(ray, out hit,Mathf.Infinity))
             {
-                Destroy(hit.collider.transform.parent.gameObject);
+                Destroy(hit.collider.gameObject);
                 GameObject Go = Instantiate(prefabExplosion, hit.transform.position, Quaternion.identity);
                 Destroy(Go, 4f);
                 myAudioSource.PlayOneShot(explosionSound);

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AiRobot : MonoBehaviour {
 
+    [SerializeField]
+    GameObject AIGo;
+
     float speed = 0f;
+
     
 	void Start () {
         speed = Random.Range(0.2f, 0.8f);

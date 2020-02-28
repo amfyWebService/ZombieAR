@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField]
+    GameObject ParentGameObject;
+
+    [SerializeField]
     GameObject PrefabRobot;
 
     [SerializeField]
@@ -14,6 +17,11 @@ public class GameManagerScript : MonoBehaviour
     GameObject Looser;
 
     void Start()
+    {
+        //Run();
+    }
+
+    public void Run()
     {
         InvokeRepeating("Spawn", 0f, delay);
     }
@@ -27,6 +35,7 @@ public class GameManagerScript : MonoBehaviour
         pos.y = Random.Range(-rangeY, rangeY);
 
         GameObject go = Instantiate(PrefabRobot, pos, Quaternion.identity);
+        go.transform.parent = ParentGameObject.transform;
     }
 
     public void Dead()
